@@ -15,12 +15,13 @@ Skynet.UI.Settings.saveBtn = Skynet.UI.Settings.saveBtn or iup.stationbutton {
     ALIGNMENT="ACENTER",
     EXPAND="NO",
     action = function(self)
-        Skynet.Settings.username = Skynet.UI.Settings.username.value or ""
-        Skynet.Settings.password = Skynet.UI.Settings.password.value or ""
-        Skynet.Settings.autologin = Skynet.UI.Settings.autologin.value or "OFF"
-        Skynet.Settings.notifier = Skynet.UI.Settings.autologin.notifier or "ON"
-        Skynet.Settings.anonchat = Skynet.UI.Settings.anonchat.value or "OFF"
+        Skynet.Settings.username    = Skynet.UI.Settings.username.value or ""
+        Skynet.Settings.password    = Skynet.UI.Settings.password.value or ""
+        Skynet.Settings.autologin   = Skynet.UI.Settings.autologin.value or "OFF"
+        Skynet.Settings.notifier    = Skynet.UI.Settings.autologin.notifier or "ON"
+        Skynet.Settings.anonchat    = Skynet.UI.Settings.anonchat.value or "OFF"
         Skynet.Settings.notifyflash = Skynet.UI.Settings.notifyflash.value or "OFF"
+        Skynet.Settings.sound       = Skynet.UI.Settings.sound.value or "ON"
 --      Skynet.Settings.notifychat = Skynet.UI.Settings.notifychat.value or "ON"
 --      Skynet.Settings.notifyhud = Skynet.UI.Settings.notifyhud.value or "ON"
         Skynet.SaveSettings()
@@ -55,6 +56,11 @@ Skynet.UI.Settings.notifyflash = Skynet.UI.Settings.notifyflash or iup.stationto
     end
 }
 
+Skynet.UI.Settings.sound = Skynet.UI.Settings.sound or iup.stationtoggle{ value="ON", title="Sound",
+    action=function(self, state)
+        Skynet.Settings.sound = (state==1 and "ON") or "OFF"
+    end
+}
 Skynet.UI.SettingsWindow = Skynet.UI.SettingsWindow or iup.dialog{
     iup.hbox {
         iup.fill {},
@@ -80,8 +86,7 @@ Skynet.UI.SettingsWindow = Skynet.UI.SettingsWindow or iup.dialog{
                                 Skynet.UI.Settings.notifier,
                                 Skynet.UI.Settings.anonchat,
                                 Skynet.UI.Settings.notifyflash,
-                                Skynet.UI.Settings.notifychat,
-                                Skynet.UI.Settings.notifyhud,
+                                Skynet.UI.Settings.sound,
                             },
                         },
                         iup.fill { size="15" },
@@ -107,16 +112,17 @@ Skynet.UI.SettingsWindow = Skynet.UI.SettingsWindow or iup.dialog{
     fullscreen="YES",
     show_cb = function(self)
         Skynet.LoadSettings()
-        Skynet.UI.Settings.username.value = Skynet.Settings.username or ""
-        Skynet.UI.Settings.password.value = Skynet.Settings.password or ""
-        Skynet.UI.Settings.autologin.value = Skynet.Settings.autologin or "OFF"
-        Skynet.UI.Settings.notifier.value = Skynet.Settings.notifier or "ON"
-        Skynet.UI.Settings.anonchat.value = Skynet.Settings.anonchat or "OFF"
+        Skynet.UI.Settings.username.value    = Skynet.Settings.username or ""
+        Skynet.UI.Settings.password.value    = Skynet.Settings.password or ""
+        Skynet.UI.Settings.autologin.value   = Skynet.Settings.autologin or "OFF"
+        Skynet.UI.Settings.notifier.value    = Skynet.Settings.notifier or "ON"
+        Skynet.UI.Settings.anonchat.value    = Skynet.Settings.anonchat or "OFF"
         Skynet.UI.Settings.notifyflash.value = Skynet.Settings.notifyflash or "OFF"
+        Skynet.UI.Settings.sound.value       = Skynet.Settings.sound or "ON"
 --      Skynet.UI.Settings.notifychat.value = Skynet.Settings.notifychat or "ON"
 --      Skynet.UI.Settings.notifyhud.value = Skynet.Settings.notifyhud or "ON"
     end,
-    hide_cb = function()
+    --hide_cb = function()
         -- Save settings
-    end,
+    --end,
 }

@@ -57,7 +57,9 @@ Skynet.StreakAnnounce = function(killer, killerguild, killerfaction, streak)
         killmessage = killerfaction .. killerguild .. killer .. "\127FFFFFF is \127aa0000IMMORTAL! Somebody KILL HIM!!! \127FFFFFFt(" .. streak .. " kills)"
     end
     if killmessage ~= nil then
-    gksound.GKPlaySound(thesound, 1) --Wrap this in IF tags for the option to have sounds on/off
+    if Skynet.Settings.sound == "ON" then
+        gksound.GKPlaySound(thesound, 1) --Wrap this in IF tags for the option to have sounds on/off
+    end
     print(killmessage)
     end
 end
@@ -82,7 +84,9 @@ Skynet.MultiKillAnnounce = function(killer, killerguild, killerfaction, multi)
         killmessage = killerfaction .. killerguild .. killer .. "\127FFFFFF \127aa0000ANNIHILATED \127FFFFFFthe enemy team!!"
     end
     if killmessage ~= nil then
-    gksound.GKPlaySound(thesound, 1) --Wrap this in IF tags for the option to have sounds on/off
+    if Skynet.UI.Settings.sound.value == "ON" then
+        gksound.GKPlaySound(thesound, 1) --Wrap this in IF tags for the option to have sounds on/off
+    end
     print(killmessage)
     end
 end
@@ -394,7 +398,9 @@ local thesound = ""
         thesound = "sweet"
         killmessage = killerfaction .. killerguild .. killer .. '\127FFFFFF' .. " got vengeance at the last second on " .. victimfaction .. victimguild .. victim .. "\127FFFFFF with a " .. Skynet.GetWeaponMsg(weapon)
     end
-    gksound.GKPlaySound(thesound, 1) --Wrap this in IF tags for the option to have sounds on/off
+    if Skynet.Settings.sound == "ON" then
+        gksound.GKPlaySound(thesound, 1) --Wrap this in IF tags for the option to have sounds on/off
+    end
     return killmessage
 
 end

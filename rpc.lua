@@ -136,6 +136,7 @@ Skynet.rpc["playerseen"] = function(params)
         end
         if table.getn2(multi_list[player.sectorid]) == 0 then multi_list[player.sectorid] = nil end
     end
+    print(table.tostring(multi_list))
     Skynet.Notifier.CurrentState = multi_list
 -- Skynet.print(table.tostring(Skynet.Notifier.NotificationsDisplay))
 Skynet.Notifier.UpdateNotifyDisplay()

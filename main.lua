@@ -60,8 +60,9 @@ Skynet.PlayerEnteredGame = function()
     Skynet.print("Skynet loaded...")
     Skynet.UI.Init()
     Skynet.LoadSettings()
-    Skynet.LoadSounds()
-
+    if (Skynet.Settings.sound == "ON") then
+        Skynet.LoadSounds()
+    end
     if (Skynet.Settings.autologin=="ON") then -- Auto connect?
         Skynet.TCPConn.connect()
     end
@@ -71,34 +72,34 @@ end
 
 Skynet.LoadSounds = function()
 --Load sounds
-gksound.GKLoadSound{soundname='humil', filename="plugins/Skynet/sounds/humil.ogg"}
-gksound.GKLoadSound{soundname='massa', filename="plugins/Skynet/sounds/massacre.ogg"}
-gksound.GKLoadSound{soundname='smack', filename="plugins/Skynet/sounds/smackdown.ogg"}
-gksound.GKLoadSound{soundname='domin', filename="plugins/Skynet/sounds/dominate.ogg"}
-gksound.GKLoadSound{soundname='game', filename="plugins/Skynet/sounds/gameover.ogg"}
-gksound.GKLoadSound{soundname='sweet', filename="plugins/Skynet/sounds/sweetvengence.ogg"}
-gksound.GKLoadSound{soundname='waste', filename="plugins/Skynet/sounds/waste.ogg"}
-gksound.GKLoadSound{soundname='poor', filename="plugins/Skynet/sounds/poorbaby.ogg"}
-gksound.GKLoadSound{soundname='tooez', filename="plugins/Skynet/sounds/tooeasy.ogg"}
-gksound.GKLoadSound{soundname='bow', filename="plugins/Skynet/sounds/bow.ogg"}
-gksound.GKLoadSound{soundname='nocha', filename="plugins/Skynet/sounds/nochance.ogg"}
-gksound.GKLoadSound{soundname='yoda', filename="plugins/Skynet/sounds/sizemattersnot.ogg"}
-gksound.GKLoadSound{soundname='headshot', filename="plugins/Skynet/sounds/headshot.ogg"}
-gksound.GKLoadSound{soundname='3kills', filename="plugins/Skynet/sounds/3_kills.ogg"}
-gksound.GKLoadSound{soundname='4kills', filename="plugins/Skynet/sounds/4_kills.ogg"}
-gksound.GKLoadSound{soundname='5kills', filename="plugins/Skynet/sounds/5_kills.ogg"}
-gksound.GKLoadSound{soundname='6kills', filename="plugins/Skynet/sounds/6_kills.ogg"}
-gksound.GKLoadSound{soundname='7kills', filename="plugins/Skynet/sounds/7_kills.ogg"}
-gksound.GKLoadSound{soundname='8kills', filename="plugins/Skynet/sounds/8_kills.ogg"}
-gksound.GKLoadSound{soundname='9kills', filename="plugins/Skynet/sounds/9_kills.ogg"}
-gksound.GKLoadSound{soundname='10kills', filename="plugins/Skynet/sounds/10_kills.ogg"}
-gksound.GKLoadSound{soundname='godlike', filename="plugins/Skynet/sounds/godlike.ogg"}
-gksound.GKLoadSound{soundname='immortal', filename="plugins/Skynet/sounds/immortal.ogg"}
-gksound.GKLoadSound{soundname='double', filename="plugins/Skynet/sounds/double_kill.ogg"}
-gksound.GKLoadSound{soundname='triple', filename="plugins/Skynet/sounds/triple_kill.ogg"}
-gksound.GKLoadSound{soundname='quad', filename="plugins/Skynet/sounds/quad_kill.ogg"}
-gksound.GKLoadSound{soundname='annihilation', filename="plugins/Skynet/sounds/annihilation.ogg"}
-gksound.GKLoadSound{soundname='genocide', filename="plugins/Skynet/sounds/genocide.ogg"}
+gksound.GKLoadSound{soundname='humil',    filename="plugins/skynet-client/sounds/humil.ogg"}
+gksound.GKLoadSound{soundname='massa',    filename="plugins/skynet-client/sounds/massacre.ogg"}
+gksound.GKLoadSound{soundname='smack',    filename="plugins/skynet-client/sounds/smackdown.ogg"}
+gksound.GKLoadSound{soundname='domin',    filename="plugins/skynet-client/sounds/dominate.ogg"}
+gksound.GKLoadSound{soundname='game',     filename="plugins/skynet-client/sounds/gameover.ogg"}
+gksound.GKLoadSound{soundname='sweet',    filename="plugins/skynet-client/sounds/sweetvengence.ogg"}
+gksound.GKLoadSound{soundname='waste',    filename="plugins/skynet-client/sounds/waste.ogg"}
+gksound.GKLoadSound{soundname='poor',     filename="plugins/skynet-client/sounds/poorbaby.ogg"}
+gksound.GKLoadSound{soundname='tooez',    filename="plugins/skynet-client/sounds/tooeasy.ogg"}
+gksound.GKLoadSound{soundname='bow',      filename="plugins/skynet-client/sounds/bow.ogg"}
+gksound.GKLoadSound{soundname='nocha',    filename="plugins/skynet-client/sounds/nochance.ogg"}
+gksound.GKLoadSound{soundname='yoda',     filename="plugins/skynet-client/sounds/sizemattersnot.ogg"}
+gksound.GKLoadSound{soundname='headshot', filename="plugins/skynet-client/sounds/headshot.ogg"}
+gksound.GKLoadSound{soundname='3kills',   filename="plugins/skynet-client/sounds/3_kills.ogg"}
+gksound.GKLoadSound{soundname='4kills',   filename="plugins/skynet-client/sounds/4_kills.ogg"}
+gksound.GKLoadSound{soundname='5kills',   filename="plugins/skynet-client/sounds/5_kills.ogg"}
+gksound.GKLoadSound{soundname='6kills',   filename="plugins/skynet-client/sounds/6_kills.ogg"}
+gksound.GKLoadSound{soundname='7kills',   filename="plugins/skynet-client/sounds/7_kills.ogg"}
+gksound.GKLoadSound{soundname='8kills',   filename="plugins/skynet-client/sounds/8_kills.ogg"}
+gksound.GKLoadSound{soundname='9kills',   filename="plugins/skynet-client/sounds/9_kills.ogg"}
+gksound.GKLoadSound{soundname='10kills',  filename="plugins/skynet-client/sounds/10_kills.ogg"}
+gksound.GKLoadSound{soundname='godlike',  filename="plugins/skynet-client/sounds/godlike.ogg"}
+gksound.GKLoadSound{soundname='immortal', filename="plugins/skynet-client/sounds/immortal.ogg"}
+gksound.GKLoadSound{soundname='double',   filename="plugins/skynet-client/sounds/double_kill.ogg"}
+gksound.GKLoadSound{soundname='triple',   filename="plugins/skynet-client/sounds/triple_kill.ogg"}
+gksound.GKLoadSound{soundname='quad',     filename="plugins/skynet-client/sounds/quad_kill.ogg"}
+gksound.GKLoadSound{soundname='annihilation', filename="plugins/skynet-client/sounds/annihilation.ogg"}
+gksound.GKLoadSound{soundname='genocide', filename="plugins/skynet-client/sounds/genocide.ogg"}
 
 
 end
@@ -111,8 +112,8 @@ Skynet.ShowHelp = function()
     Skynet.print("/Skynet connect - Manually connect to server")
     Skynet.print("/Skynet disconnect - Disconnect from server")
     Skynet.print("/Skynet clearspots - Clears all the spots on the HUD")
-    Skynet.print("Additionally Skynet will display payment/KOS status for a player when you target him (at the bottom of your hud)")
-    Skynet.print("You will also be notified when other players using Skynet meet players around the verse")
+    Skynet.print("Additionally Skynet will display payment/KOS status for a pilot when you target him (at the bottom of your hud)")
+    Skynet.print("You will also be notified when other pilotss using Skynet meet pilots around the verse")
 
 end
 
