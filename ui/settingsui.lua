@@ -22,6 +22,7 @@ Skynet.UI.Settings.saveBtn = Skynet.UI.Settings.saveBtn or iup.stationbutton {
         Skynet.Settings.anonchat    = Skynet.UI.Settings.anonchat.value or "OFF"
         Skynet.Settings.notifyflash = Skynet.UI.Settings.notifyflash.value or "OFF"
         Skynet.Settings.sound       = Skynet.UI.Settings.sound.value or "ON"
+        Skynet.Settings.groupchat   = Skynet.UI.Settings.groupchat.value or "OFF"
 --      Skynet.Settings.notifychat = Skynet.UI.Settings.notifychat.value or "ON"
 --      Skynet.Settings.notifyhud = Skynet.UI.Settings.notifyhud.value or "ON"
         Skynet.SaveSettings()
@@ -61,6 +62,13 @@ Skynet.UI.Settings.sound = Skynet.UI.Settings.sound or iup.stationtoggle{ value=
         Skynet.Settings.sound = (state==1 and "ON") or "OFF"
     end
 }
+
+Skynet.UI.Settings.groupchat = Skynet.UI.Settings.groupchat or iup.stationtoggle{ value="OFF", title="Share spots with group",
+    action=function(self, state)
+        Skynet.Settings.groupchat = (state==1 and "ON") or "OFF"
+    end
+}
+
 Skynet.UI.SettingsWindow = Skynet.UI.SettingsWindow or iup.dialog{
     iup.hbox {
         iup.fill {},
@@ -87,6 +95,7 @@ Skynet.UI.SettingsWindow = Skynet.UI.SettingsWindow or iup.dialog{
                                 Skynet.UI.Settings.anonchat,
                                 Skynet.UI.Settings.notifyflash,
                                 Skynet.UI.Settings.sound,
+                                Skynet.UI.Settings.groupchat
                             },
                         },
                         iup.fill { size="15" },
